@@ -1,7 +1,4 @@
 import { useState, useCallback } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import GanttChart from './components/Ganttchart'
 import Chatinput from './components/Chatinput'
 import Submit from './components/Submit'
@@ -11,14 +8,16 @@ import LoaderInd from './components/LoaderInd'
 import Refresh from './components/Refresh'
 import TextInput from './components/TextInput'
 import Placeholder from './components/PlaceHolder'
+import ApiDialog from './components/ApiDialog'
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [apiKey, setApiKey] = useState('');
 
   const [story, setStory] = useState('');
   const [error, setError] = useState(null);
+// loader
   const [story_fetching, setSf] = useState(false);
 
   const [textInput, setTextInput] = useState('');
@@ -42,23 +41,29 @@ function App() {
   };
 
   return (
+    (apiKey.length == 0) ? <ApiDialog /> : 
     <div className='flex-container'>
       <div className='flex-item'><ButtonAppBar/></div>
-      <div className='flex-item'>
+      <div className='flex-item' style={{width:"100%",height:"70vh",overflow:"scroll",
+      // display:"flex"
+        
+      }}>
+        {/* <GanttChart res={story}/> */}
         {(story.length > 0) ? <GanttChart res={story}/> : <Placeholder/>}
       </div>
-      <div className='flex-item'>
+      <div className='flex-item' style={{height:"5vh"}}>
         <div className='flex-container-row'>
           <div className='text-input'>
             <TextInput onChange={handleTextInputChange}/>
           </div>
           <div className='button-stack'>
+          {(story.length <= 0) ? 
             <div className='button'>
-              <Submit func={generateStory}/>
-            </div>
+              <Submit func={generateStory} display={"Submit"} />
+            </div>:
             <div className='button'>
               <Refresh story={story} setStory={setStory} setSf={setSf} textInput={textInput}/>
-            </div>
+            </div>}
           </div>
         </div>
         <div>

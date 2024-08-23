@@ -51,23 +51,27 @@ const GanttChart = ({res}) => {
     const data = [columns, ...rows];
       
     const options = {
-        height: 35*rows.length,
-        gantt: {
+      height: 0.7 * window.innerHeight, // 70vh
+      gantt: {
           trackHeight: 30,
-        },
-      };
+      },
+  };
+  
 
   return (
-    <div>
+    
       <Chart
       chartType="Gantt"
-      width="100%"
-      height="50%"
+      // width="100%"
+      // height="70vh"
+    
       data={data}
       options={options}
     />
-    </div>
+    
   );
 };
+
+
 
 export default GanttChart;

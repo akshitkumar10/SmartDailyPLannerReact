@@ -8,7 +8,7 @@ const Placeholder = () => {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%', // Adjust the size as needed
-    minHeight: '300px',
+    minHeight: '100%',
     backgroundColor: '#f0f0f0', // Light grey background
     borderRadius: '15px', // Rounded edges
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow

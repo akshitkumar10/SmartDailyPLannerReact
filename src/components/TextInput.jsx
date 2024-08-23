@@ -19,6 +19,7 @@ const TextInput = ({ onChange }) => {
       value={value}
       onChange={handleChange}
       style={styles.textarea}
+      placeholder='Enter your day here .....'
       rows="4" // Specify rows to control initial height
     />
   );

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { update_schedule } from '../utils/GemApi';
-
+import Submit from './Submit';
 export default function Refresh(props) {
     const {story, setStory, setSf, textInput} = props
 
@@ -21,8 +21,6 @@ export default function Refresh(props) {
     }
 
     return (
-        <Button onClick={update} variant="outlined" endIcon={<RefreshIcon />}>
-        Update
-        </Button>
+        <Submit func={update} display={"Update"}/>
     );
 }
