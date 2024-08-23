@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = "AIzaSyAlkB1y7TgOis4C8H6EivDCxaOGbavQ92g";
+const API_KEY = import.meta.env.VITE_NASA_API_KEY
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
